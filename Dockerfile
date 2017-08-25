@@ -1,7 +1,5 @@
-FROM alpine:3.6
+FROM busybox
 
-RUN apk add --no-cache ca-certificates
+COPY docker-credential-ecr-login /
 
-ADD docker-credential-ecr-login /
-CMD ["/docker-credential-ecr-login"]
-
+CMD ["cp","/docker-credential-ecr-login", "/opt/bin"]
